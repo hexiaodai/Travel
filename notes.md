@@ -4,9 +4,9 @@
 
 1. 上传代码到 git 仓库
   a. git status
-  b. git add .
-  c. git commit -m 'project initialized'
-  d. git push
+  b. git add . // 将修改的代码提交到缓存区
+  c. git commit -m 'project initialized' // 将缓存区的内容提交到本地仓库
+  d. git push // 将本地仓库的代码提交到线上
 
 2. 解决移动端300毫秒延迟
     npm install --save fastclick
