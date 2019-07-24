@@ -8,8 +8,19 @@
   c. git commit -m 'project initialized' // 将缓存区的内容提交到本地仓库
   d. git push // 将本地仓库的代码提交到线上
 
+  分支
+  a. git pull // 拉取分支
+  b. git checkout index-swiper // 选择分支
+
+  合并分支
+  a. git checkout master // 切换到 master分支下
+  b. git merge origin/index-swiper // 将index-swiper新增的内容合并到 master分支
+
 2. 解决移动端300毫秒延迟
     npm install --save fastclick
 
 3. sass语法环境
     npm install --save-dev node-sass sass-loader
+
+4. 安装Swiper(幻灯片组件) 版本：2.6.7
+    npm install --save vue-awesome-swiper@2.6.7
