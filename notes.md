@@ -3,6 +3,14 @@
    c. index.html文件入口
 
 1. 上传代码到 git 仓库
+  克隆代码
+    git clone ...
+
+  git强制覆盖本地代码（与git远程仓库保持一致）
+    git fetch --all
+    git reset --hard origin/master
+    git pull
+
   a. git status
   b. git add . // 将修改的代码提交到缓存区
   c. git commit -m 'project initialized' // 将缓存区的内容提交到本地仓库
