@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// 导入 vue 模板文件
+import Home from '@/pages/home/Home'
 
 Vue.use(Router)
 
+// 路由配置项
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Home',
+      component: Home
     }
   ]
 })
