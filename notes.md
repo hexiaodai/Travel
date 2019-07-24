@@ -1,2 +1,2 @@
 1. 上传代码到 git 仓库
-  
+  a. git status
