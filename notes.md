@@ -3,7 +3,6 @@
    c. index.html文件入口
 
 1. 上传代码到 git 仓库
-<<<<<<< HEAD
   a. git status
   b. git add . // 将修改的代码提交到缓存区
   c. git commit -m 'project initialized' // 将缓存区的内容提交到本地仓库
@@ -11,6 +10,6 @@
 
 2. 解决移动端300毫秒延迟
     npm install --save fastclick
-=======
-  a. git status
->>>>>>> b701e09cb779d983129f922d777e285eb6dbcd3d
+
+3. sass语法环境
+    npm install --save-dev node-sass sass-loader

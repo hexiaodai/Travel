@@ -31,11 +31,16 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  // 解析路径
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'api': resolve('src/api'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components'),
+      'pages': resolve('src/pages'),
     }
   },
   module: {
