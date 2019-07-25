@@ -34,26 +34,6 @@ export default {
         title: '故宫',
         desc: '观赏制酒流程工艺，醇厚浓香烧酒，体验制作酒糟菜肴。',
         imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg'
-      }, {
-        id: '0004',
-        title: '八达岭长城',
-        desc: '观赏制酒流程工艺，醇厚浓香烧酒，体验制作酒糟菜肴。',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg'
-      }, {
-        id: '0005',
-        title: '京东石林峡',
-        desc: '观赏制酒流程工艺，醇厚浓香烧酒，体验制作酒糟菜肴。',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1604/78/78873494f26e554090.water.jpg_200x200_331422ad.jpg'
-      }, {
-        id: '0006',
-        title: '什刹海',
-        desc: '观赏制酒流程工艺，醇厚浓香烧酒，体验制作酒糟菜肴。',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/85/85c883189bf7293390.water.jpg_200x200_3165123d.jpg'
-      }, {
-        id: '0007',
-        title: '颐和园',
-        desc: '观赏制酒流程工艺，醇厚浓香烧酒，体验制作酒糟菜肴。',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_200x200_2cce447f.jpg'
       }]
     }
   }
@@ -92,7 +72,6 @@ export default {
 
     & .item-title {
       font-size: $font-size-title;
-      font-weight: bold;
       line-height: .54rem;
       @include ellipsis();
     }
