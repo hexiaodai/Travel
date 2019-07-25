@@ -19,6 +19,7 @@
   分支
   a. git pull // 拉取分支
   b. git checkout index-swiper // 选择分支
+  c. git branch -a // 查看所有分支
 
   合并分支
   a. git checkout master // 切换到 master分支下
@@ -32,3 +33,6 @@
 
 4. 安装Swiper(幻灯片组件) 版本：2.6.7
     npm install --save vue-awesome-swiper@2.6.7
+
+5. 自动修正代码风格
+    npm run lint -- --fix
