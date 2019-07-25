@@ -25,7 +25,7 @@ export default {
       // swiper配置项
       swiperOption: {
         pagination: '.swiper-pagination', // 轮播分页
-        loop: true // swiper 循环轮播
+        loop: false // swiper 循环轮播
       },
       iconList: [{
         id: '0001',
