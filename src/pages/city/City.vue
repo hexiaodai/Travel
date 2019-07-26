@@ -2,8 +2,8 @@
   <div>
     <city-header />
     <city-search />
-    <city-list />
-    <city-alphabet />
+    <city-list :hotCities="hotCities" :cities="cities" />
+    <city-alphabet :cities="cities" />
   </div>
 </template>
 
@@ -12,14 +12,41 @@ import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
 import CityAlphabet from './components/Alphabet'
+import axios from 'axios'
 
 export default {
   name: 'City',
+  data () {
+    return {
+      cities: {}, // 城市集合
+      hotCities: [] // 热门城市
+    }
+  },
   components: {
     CityHeader,
     CitySearch,
     CityList,
     CityAlphabet
+  },
+  methods: {
+    // ajax 获取 city数据
+    getCityInfo () {
+      axios.get('/api/city.json')
+        .then(this.handleGetCityInfoSucc)
+    },
+    // 结束 ajax数据
+    handleGetCityInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        console.log(data)
+        this.hotCities = data.hotCities
+        this.cities = data.cities
+      }
+    }
+  },
+  mounted () {
+    this.getCityInfo()
   }
 }
 </script>
