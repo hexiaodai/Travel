@@ -40,3 +40,6 @@
 
 6. 安装axios(ajax请求后台数据)
     npm install --save axios
+
+7. 安装better-scroll(滑动组件)
+    npm install better-scroll --save

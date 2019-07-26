@@ -29,7 +29,7 @@ export default {
 .title {
   margin-top: .2rem;
   line-height: .8rem;
-  background-color: $recommend-bgc;
+  background-color: $title-bgc;
   font-weight: bold;
   text-indent: .2rem;
   font-size: $font-size-title;
