@@ -36,3 +36,6 @@
 
 5. 自动修正代码风格
     npm run lint -- --fix
+
+6. 安装axios(ajax请求后台数据)
+    npm install --save axios

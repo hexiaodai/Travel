@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper-swiper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
-      <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-img" :src="item.imgUrl" :alt="item.alt">
+      <swiper-slide v-for="item of list" :key="item.id">
+        <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -16,27 +16,29 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper' // 导入 swiper组件
 
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array // 幻灯片数据
+  },
   data () {
     return {
       // swiper配置项
       swiperOption: {
+        autoplay: 3000, // 轮播图自动滚动
+        watchOverflow: true, // 只有个slide(非loop), swiper会失效
         pagination: '.swiper-pagination', // 轮播分页
         loop: true // swiper 循环轮播
-      },
-      swiperList: [{
-        id: '0001',
-        'alt': '暑假你会玩',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/82fd1a5457649a9c43b82eb36a7bbc86.jpg_750x200_27211d2d.jpg'
-      }, {
-        id: '0002',
-        'alt': '酷玩夏日',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/818f6cc784ae6669b74bbbb255414a53.jpg_750x200_66ca5873.jpg'
-      }]
+      }
     }
   },
   components: {
     swiper,
     swiperSlide
+  },
+  computed: {
+    // 幻灯片数据存在，加载 swiper组件
+    showSwiper () {
+      return this.list.length
+    }
   }
 }
 </script>

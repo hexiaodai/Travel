@@ -6,7 +6,7 @@
       <span>输入城市 / 景点 / 游玩主题</span>
     </div>
     <div class="header-right">
-      <span>深圳</span>
+      <span>{{city}}</span>
       <i class="iconfont iconjiantou"></i>
     </div>
   </div>
@@ -14,7 +14,10 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String // 父组件传递的城市数据
+  }
 }
 </script>
 
