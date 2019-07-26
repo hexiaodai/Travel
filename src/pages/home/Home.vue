@@ -45,7 +45,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data // home页 json数据
-        console.log(data)
         this.city = data.city // 选中的城市
         this.swiperList = data.swiperList // 幻灯片数据
         this.iconList = data.iconList // 类目数据

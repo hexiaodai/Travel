@@ -19,9 +19,8 @@ $modal-bgc: rgba(0, 0, 0, 0.4);
 $font-size-html: 50px;
 $font-size-base: .28rem;
 $font-size-title: .32rem;
-$font-size-l: $font-size-base + 2;
-$icon-font-size-sm: .36rem;
 $icon-font-size: .48rem;
+$icon-back-font-size: .36rem;
 
 //z-index
 $navbar-z-index: 1000;
@@ -32,6 +31,5 @@ $product-z-index: 1200;
 $search-popup-z-index: $search-z-index + 10;
 $category-popup-z-index: $search-z-index - 10;
 
-//size
-$navbar-height: 50px;
-$tabbar-height: 50px;
+//height
+$header-height: .86rem;

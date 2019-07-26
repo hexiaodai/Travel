@@ -5,10 +5,12 @@
       <i class="iconfont iconsousuo"></i>
       <span>输入城市 / 景点 / 游玩主题</span>
     </div>
-    <div class="header-right">
-      <span>{{city}}</span>
-      <i class="iconfont iconjiantou"></i>
-    </div>
+    <router-link to="./city">
+      <div class="header-right">
+        <span>{{city}}</span>
+        <i class="iconfont iconjiantou"></i>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -25,17 +27,19 @@ export default {
 @import '~assets/scss/mixins';
 
 .header {
-  // line-height: .88rem;
-  @include flex-between();
+  line-height: $header-height;
+  // height: $header-height;
   background-color: $header-bgc;
   color: #fff;
+  @include flex-between();
 
   &-left {
     width: .64rem;
     text-align: center;
 
     & .iconfont {
-      font-size: .36rem;
+      font-size: $icon-back-font-size;
+      font-weight: bold;
     }
   }
 
@@ -59,6 +63,7 @@ export default {
   &-right {
     width: 1.24rem;
     display: flex;
+    color: $default-color;
     @include flex-center();
   }
 }
