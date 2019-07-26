@@ -24,6 +24,7 @@
   合并分支
   a. git checkout master // 切换到 master分支下
   b. git merge origin/index-... // 将index-swiper新增的内容合并到 master分支
+  c. git push // 提交代码到线上
 
 2. 解决移动端300毫秒延迟
     npm install --save fastclick
