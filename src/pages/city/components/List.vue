@@ -12,10 +12,10 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <ul class="item-list">
-          <li class="item" v-for="hotCitie of hotCities" :key="hotCitie.id">{{hotCitie.name}}</li>
+          <li class="item" v-for="hotCitie of hotCities" :key="hotCitie.id" >{{hotCitie.name}}</li>
         </ul>
       </div>
-      <div class="area" v-for="(citie, key) of cities" :key="key">
+      <div class="area" v-for="(citie, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <ul class="item-list">
           <li class="item" v-for="item of citie" :key="item.id">{{item.name}}</li>
@@ -32,12 +32,23 @@ import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
   props: {
-    hotCities: Array,
-    cities: Object
+    hotCities: Array, // 热门城市数据
+    cities: Object, // 城市集合
+    letter: String
   },
   mounted () {
-    // 创建 better-scroll 实例
+    // 创建 better-scroll 实例 (页面滑动组件)
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    // 监听 CityAlphabet组件序号的变化，将屏幕显示区域定位到对应序号
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0] // 获取 :ref="key"的DOM元素
+        // better-scroll组件，将滚动区域 自动滚动到某个元素上
+        this.scroll.scrollToElement(element) // scrollToElement() 接收一个需要定位的DOM元素
+      }
+    }
   }
 }
 </script>
@@ -73,6 +84,7 @@ export default {
       line-height: .88rem;
       width: 30%;
       text-align: center;
+      @include ellipsis();
     }
   }
 }
