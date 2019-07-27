@@ -43,3 +43,6 @@
 
 7. 安装better-scroll(滑动组件)
     npm install better-scroll --save
+
+8. 安装Vuex
+    npm install vuex --save

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <home-header :city="city" />
+    <!-- <home-header :city="city" /> -->
+    <home-header />
     <home-swiper :list="swiperList" />
     <home-icons :list="iconList" />
     <home-recommend :list="recommendList" />
@@ -20,7 +21,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      city: null, // 加载的城市
+      // city: null, // 加载的城市
       swiperList: [], // 幻灯片数据
       iconList: [], // 类目数据
       recommendList: [], // 热销推荐
@@ -45,7 +46,7 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data // home页 json数据
-        this.city = data.city // 选中的城市
+        // this.city = data.city // 选中的城市
         this.swiperList = data.swiperList // 幻灯片数据
         this.iconList = data.iconList // 类目数据
         this.recommendList = data.recommendList // 热销推荐

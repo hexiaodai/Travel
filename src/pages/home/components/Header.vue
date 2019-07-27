@@ -3,11 +3,12 @@
     <div class="header-left"><i class="iconfont iconfanhui"></i></div>
     <div class="header-input">
       <i class="iconfont iconsousuo"></i>
-      <span>输入城市 / 景点 / 游玩主题</span>
+      <span>输入城市/景点/游玩主题</span>
     </div>
     <router-link to="./city">
       <div class="header-right">
-        <span>{{city}}</span>
+        <!-- this.$store: vuex数据仓库, state存放共公数据 -->
+        <span class="city">{{this.city}}</span>
         <i class="iconfont iconjiantou"></i>
       </div>
     </router-link>
@@ -15,10 +16,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex' // vuex state对象上的数据
+
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String // 父组件传递的城市数据
+  computed: {
+    ...mapState(['city']) // 将vuex state储存的city数据，映射到 city计算属性中
   }
 }
 </script>
@@ -61,10 +64,16 @@ export default {
   }
 
   &-right {
-    width: 1.24rem;
+    min-width: 1.24rem;
+    max-width: 2.5rem;
+    padding: 0 .2rem;
     display: flex;
     color: $default-color;
     @include flex-center();
+
+    & .city {
+      @include ellipsis();
+    }
   }
 }
 

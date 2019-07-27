@@ -6,19 +6,20 @@
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <ul class="item-list">
-          <li class="item">北京</li>
+          <!-- this.$store: vuex数据仓库, state存放共公数据 -->
+          <li class="item">{{this.city}}</li>
         </ul>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <ul class="item-list">
-          <li class="item" v-for="hotCitie of hotCities" :key="hotCitie.id" >{{hotCitie.name}}</li>
+          <li class="item" v-for="hotCitie of hotCities" :key="hotCitie.id" @click="handleCityClick(hotCitie.name)">{{hotCitie.name}}</li>
         </ul>
       </div>
       <div class="area" v-for="(citie, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <ul class="item-list">
-          <li class="item" v-for="item of citie" :key="item.id">{{item.name}}</li>
+          <li class="item" v-for="item of citie" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
         </ul>
       </div>
     </div>
@@ -28,6 +29,8 @@
 <script>
 // better-scroll组件
 import BScroll from 'better-scroll'
+// mapState: vuex state对象上的数据
+import { mapState } from 'vuex'
 
 export default {
   name: 'CityList',
@@ -35,6 +38,18 @@ export default {
     hotCities: Array, // 热门城市数据
     cities: Object, // 城市集合
     letter: String
+  },
+  computed: {
+    ...mapState(['city']) // 将vuex state储存的city数据，映射到 city计算属性中
+  },
+  methods: {
+    handleCityClick (city) {
+      // 切换选中的城市 (改变vuex state中的数据)
+      // this.$store.dispatch('changeCity', city) // dispatch(): 此方法调用vuex的actions对象，actions对象调用mutations对象，mutations对象改变 state内的数据
+      this.$store.commit('changeCity', city) // commit(): 此方法直接调用mutations对象，mutations对象改变 state对象内的数据
+      // $router.push(): 路由，跳转页面
+      this.$router.push('/')
+    }
   },
   mounted () {
     // 创建 better-scroll 实例 (页面滑动组件)

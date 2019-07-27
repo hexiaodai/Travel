@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li v-for="item of list" :key="item.id" class="search-item">{{item.name}}</li>
+        <li v-for="item of list" :key="item.id" @click="handleCityClick(item.name)" class="search-item">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -21,6 +21,14 @@ export default {
       keyword: null, // 搜索关键字
       list: [], // 搜索结果集合
       timer: null
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      // $store.commit(): 切换选中的城市 (改变vuex state中的数据)
+      this.$store.commit('changeCity', city) // commit(): 此方法直接调用mutations对象，mutations对象改变 state对象内的数据
+      // $router.push(): 路由，跳转页面
+      this.$router.push('/')
     }
   },
   watch: {
