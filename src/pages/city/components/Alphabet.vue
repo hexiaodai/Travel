@@ -21,7 +21,9 @@ export default {
   },
   data () {
     return {
-      touchStatus: false // 手指是否开始触摸序号区域
+      touchStatus: false, // 手指是否开始触摸序号区域
+      startY: 0,
+      timer: null
     }
   },
   computed: {
@@ -33,6 +35,10 @@ export default {
       }
       return letters
     }
+  },
+  // 页面被更新渲染后，执行updated()
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop // (字母表首字母)当前位置与当前父元素 顶部之间的距离(差值)
   },
   methods: {
     // 将数据传递至父组件
@@ -47,15 +53,20 @@ export default {
     handleTouchMove (e) {
       // 手指滑动区域 与屏幕顶部区域之间的距离(差值) 计算当前的序号
       if (this.touchStatus) {
-        const startY = this.$refs['A'][0].offsetTop // 当前位置与当前父元素 顶部之间的距离(差值)
-        const touchY = e.touches[0].clientY - 79.2 // 触摸位置与当前父元素 顶部之间的距离(差值)
-        let index = Math.floor((touchY - startY) / 20) // 计算手指滑动区域序号(字母)的索引，20px/序号(字母)
-        console.log(index)
-        if (index < 0 || index > this.letters.length - 1) {
-          index = 0
-          console.log('....')
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
-        this.$emit('change', this.letters[index]) // 向父组件派发一个事件，传递手指滑动选中的序号
+        // 延时执行 touchmove()事件，提高性能
+        this.timer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 79.2 // 触摸位置与当前父元素 顶部之间的距离(差值)
+          let index = Math.floor((touchY - this.startY) / 20) // 计算手指滑动区域序号(字母)的索引，20px/序号(字母)
+          console.log(index)
+          if (index < 0 || index > this.letters.length) {
+            index = 0
+            console.log('....')
+          }
+          this.$emit('change', this.letters[index]) // 向父组件派发一个事件，传递手指滑动选中的序号
+        }, 16)
       }
     },
     // 手指结束 序号区域滑动
