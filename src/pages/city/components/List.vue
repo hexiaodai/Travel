@@ -53,7 +53,9 @@ export default {
   },
   mounted () {
     // 创建 better-scroll 实例 (页面滑动组件)
-    this.scroll = new BScroll(this.$refs.wrapper)
+    // this.$refs.wrapper: 滚动区域
+    // {click: true}: 允许启用click事件
+    this.scroll = new BScroll(this.$refs.wrapper, {click: true})
   },
   watch: {
     // 监听 CityAlphabet组件序号的变化，将屏幕显示区域定位到对应序号
