@@ -31,14 +31,19 @@ export default {
   // 页面被展示，执行 activated函数
   activated () {
     // 监听 scroll事件，执行 handleScroll()
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  // 页面被隐藏（切换），执行 deactivated()
+  deactivated () {
+    // 移除 window对象上的 scroll事件
+    window.removeEventListener('scroll', this.handleScroll, true)
   },
   methods: {
     // header渐变效果
     handleScroll () {
-      const top = document.documentElement.scrollTop // 获取当前页面的滚动条纵坐标位置
-      if (top > 20) {
-        let opacity = top / 140
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop // 获取当前页面的滚动条纵坐标位置
+      if (scrollTop > 20) {
+        let opacity = scrollTop / 140
         opacity = opacity > 1 ? 1 : opacity // opacity属性 最大值为 1
         this.opacityStyle = { opacity }
         this.showAbs = false
