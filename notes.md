@@ -46,3 +46,9 @@
 
 8. 安装Vuex
     npm install vuex --save
+
+9. ES6代码转ES5代码 babel-polyfill（兼容某些不支持ES6的浏览器）
+    npm install --save babel-polyfill
+
+10. 项目打包上线
+    a. 打包 npm run build

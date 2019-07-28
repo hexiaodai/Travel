@@ -1,11 +1,12 @@
 <template>
   <ul class="list">
+    <!-- @touchstart.prevent: 阻止 touchstart事件默认行为-->
     <li class="item"
       v-for="letter of letters"
       :key="letter"
       :ref="letter"
       @click="handleLetterClick"
-      @touchstart="handleTouchStart"
+      @touchstart.prevent="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
     >
