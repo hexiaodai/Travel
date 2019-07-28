@@ -12,7 +12,7 @@
       <router-link to="/">
         <i class="header-back iconfont iconfanhui"></i>
       </router-link>
-      <span class="header-title">青海湖仙女湾</span>
+      <span class="header-title">{{sightName}}</span>
     </div>
   </div>
 </template>
@@ -28,19 +28,23 @@ export default {
       }
     }
   },
+  props: {
+    sightName: String
+  },
   // 页面被展示，执行 activated函数
   activated () {
-    // 监听 scroll事件，执行 handleScroll()
-    window.addEventListener('scroll', this.handleScroll, true)
+    // 监听 scroll事件，绑定 handleScroll()
+    // window.addEventListener('scroll', this.handleScroll, true)
   },
   // 页面被隐藏（切换），执行 deactivated()
   deactivated () {
     // 移除 window对象上的 scroll事件
-    window.removeEventListener('scroll', this.handleScroll, true)
+    // window.removeEventListener('scroll', this.handleScroll, true)
   },
   methods: {
     // header渐变效果
     handleScroll () {
+      console.log(123)
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop // 获取当前页面的滚动条纵坐标位置
       if (scrollTop > 20) {
         let opacity = scrollTop / 140
@@ -51,6 +55,16 @@ export default {
         this.showAbs = true
       }
     }
+  },
+  // 页面被加载
+  mounted () {
+    // 监听 scroll事件，绑定 handleScroll()
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  // Vue 实例销毁后调用
+  destroyed () {
+    // 移除 window对象上的 scroll事件
+    window.removeEventListener('scroll', this.handleScroll, true)
   }
 }
 </script>

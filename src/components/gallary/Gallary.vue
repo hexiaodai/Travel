@@ -3,7 +3,7 @@
     <div class="wrapper">
       <swiper :options="swiperOption">
         <!-- slides -->
-        <swiper-slide v-for="(img, index) of imgs" :key="index">
+        <swiper-slide v-for="(img, index) of gallaryImgs" :key="index">
           <img class="swiper-img" :src="img">
         </swiper-slide>
         <!-- Optional controls -->
@@ -29,7 +29,7 @@ export default {
     }
   },
   props: {
-    imgs: {
+    gallaryImgs: {
       type: Array,
       // 默认值
       default () {

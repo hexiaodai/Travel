@@ -2,17 +2,17 @@
   <div>
     <div class="banner" @click="handleBannerClick">
       <div class="wrapper-img">
-        <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1503/dc/dce06160f5db7e6f.water.jpg_600x330_7dcc50cb.jpg" alt="">
+        <img class="banner-img" :src="bannerImg" alt="">
       </div>
       <div class="banner-info">
         <div class="banner-number">
           <i class="iconfont icontupian"></i>
-          <span>4</span>
+          <span>{{gallaryImgs.length}}</span>
         </div>
-        <div class="banner-title">青海湖仙女湾</div>
+        <div class="banner-title">{{sightName}}</div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleBannerClose" />
+    <common-gallary :gallaryImgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose" />
   </div>
 </template>
 
@@ -23,12 +23,13 @@ export default {
   name: 'Banner',
   data () {
     return {
-      showGallary: false,
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1503/dc/dce06160f5db7e6f.water.jpg_r_800x800_1d174506.jpg',
-        'http://img1.qunarzz.com/sight/p0/1503/b1/b19ddc56773ee672.water.jpg_r_800x800_474cd8e2.jpg'
-      ]
+      showGallary: false
     }
+  },
+  props: {
+    gallaryImgs: Array,
+    bannerImg: String,
+    sightName: String
   },
   components: {
     CommonGallary

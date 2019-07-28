@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="item" v-for="(item, index) of list" :key="index">
+    <div class="item" v-for="(item, index) of categoryList" :key="index">
       <div class="item-title border-bottom">
         <i class="item-title-icon"></i>
         <span>{{item.title}}</span>
@@ -9,7 +9,7 @@
       <!-- 如果存在item.childern，则将 item.children当做参数传递给本身组件 -->
       <div v-if="item.children" class="item-children">
         <!-- 调用 list组件，并且传递参数 -->
-        <list :list="item.children" />
+        <list :categoryList="item.children" />
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 export default {
   name: 'List', // name: 一般用于递归组件调用
   props: {
-    list: Array
+    categoryList: Array
   }
 }
 </script>
