@@ -12,12 +12,15 @@
         <div class="banner-title">{{sightName}}</div>
       </div>
     </div>
-    <common-gallary :gallaryImgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose" />
+    <fade-animation>
+      <common-gallary :gallaryImgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose" />
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'components/gallary/Gallary'
+import FadeAnimation from 'components/fade/Fade'
 
 export default {
   name: 'Banner',
@@ -32,7 +35,8 @@ export default {
     sightName: String
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   methods: {
     // 启用 Gallary组件
