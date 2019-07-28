@@ -5,11 +5,11 @@
         <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1503/dc/dce06160f5db7e6f.water.jpg_600x330_7dcc50cb.jpg" alt="">
       </div>
       <div class="banner-info">
-        <div class="banner-title">青海湖仙女湾</div>
         <div class="banner-number">
           <i class="iconfont icontupian"></i>
           <span>4</span>
         </div>
+        <div class="banner-title">青海湖仙女湾</div>
       </div>
     </div>
     <common-gallary :imgs="imgs" v-show="showGallary" @close="handleBannerClose" />
@@ -51,7 +51,8 @@ export default {
 
 .banner {
   overflow: hidden;
-  height: 4.125rem;
+  height: auto;
+  // height: 4.125rem;
   color: $default-color;
   position: relative;
 
@@ -59,40 +60,30 @@ export default {
     height: 100%;
 
     & .banner-img {
+      height: 100%;
       width: 100%;
     }
   }
-  // &-img {
-  //   width: 100%;
-  // }
 
   &-info {
-    padding: 0 .2rem;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    line-height: 1rem;
-    display: flex;
-    align-items: center;
+    left: .2rem;
+    bottom: .18rem;
 
     & .banner-title {
       font-size: .36rem;
-      flex: 1;
-      @include ellipsis();
+      line-height: .6rem;
     }
 
     & .banner-number {
-      padding: 0 .3rem;
-      height: .4rem;
-      line-height: .4rem;
+      max-width: 1.2rem;
       border-radius: .2rem;
       font-size: .24rem;
-      background-color: rgba(0, 0, 0, .5);
+      background-color: rgba(0, 0, 0, .6);
       @include flex-center();
 
       & * {
-        padding: 0 .06rem;
+        padding: .04rem .06rem;
       }
     }
   }
