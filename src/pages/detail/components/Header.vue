@@ -57,6 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/mixins';
+
 .header-abs {
   text-align: center;
   line-height: .7rem;
@@ -86,6 +87,7 @@ export default {
   text-align: center;
   color: $default-color;
   background-color: $header-bgc;
+  z-index: $header-z-index;
 
   & .header-back {
     width: .64rem;
